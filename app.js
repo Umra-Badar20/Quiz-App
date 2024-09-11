@@ -54,16 +54,16 @@ container.style.display = "none";
     container.innerHTML = `
      <p class="question">${index+1})
      ${questions[index].question}</p><hr/>
-        <div> <label for="opt1"><input type="radio" name="option" id="opt1" value="${questions[index].opt1}"> 
+        <div class="options"> <label for="opt1"><input type="radio" name="option" id="opt1" value="${questions[index].opt1}"> 
         ${questions[index].opt1}</label></div>
-        <div> <label for="opt2"><input type="radio" name="option" id="opt2" value="${questions[index].opt2}">
+        <div class="options"> <label for="opt2"><input type="radio" name="option" id="opt2" value="${questions[index].opt2}">
         ${questions[index].opt2}</label></div>
-        <div> <label for="opt3"><input type="radio" name="option" id="opt3" value="${questions[index].opt3}">
+        <div class="options"> <label for="opt3"><input type="radio" name="option" id="opt3" value="${questions[index].opt3}">
         ${questions[index].opt3}</label></div>
-        <div> <label for="opt4"><input type="radio" name="option" id="opt4" value="${questions[index].opt4}">
+        <div class="options"> <label for="opt4"><input type="radio" name="option" id="opt4" value="${questions[index].opt4}">
         ${questions[index].opt4}</label></div>
-        <button id="prev" class="mt-2 btn btn-primary" onclick="previousQuestion()">Previous</button>
-        <button id="next" class="mt-2 btn btn-success" onclick="nextQuestion()">Next</button> `
+        <button id="prev" class="m-2 btn btn-primary" onclick="previousQuestion()">Previous</button>
+        <button id="next" class="m-2 btn btn-success" onclick="nextQuestion()">Next</button> `
     var prevButton = document.getElementById("prev");
     var nextButton = document.getElementById("next");
     // var isChecked = false;
@@ -84,12 +84,15 @@ container.style.display = "none";
             score.innerHTML = "Congratulations! You passed the test.</br> You attempted " + result + " correct answers out of " + questions.length+ " questions. </br> Your score is " +percentage + "%";
         }else{
             score.innerHTML = "Sorry! You failed the test.</br> You attempted " + result + " correct answers out of " + questions.length+ " questions. </br> Your score is " +percentage + "%";
-            score.style.color="red";
+            score.style.color="#dc3545";
         }
     }
     prevButton.disabled = (index == 0 );
     if (index == questions.length - 1) {
         nextButton.innerHTML = "Submit";
+        // nextButton.style.backgroundColor="#dc3545";
+        nextButton.classList.add("btn-danger")
+        nextButton
         console.log(questions.length); 
       }  
 }
